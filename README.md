@@ -10,8 +10,6 @@ The following script will print system information and will create the maximum p
 # Thread limiting sources
 
 ## ulimit
-http://man7.org/linux/man-pages/man5/limits.conf.5.html
-http://man7.org/linux/man-pages/man8/pam_limits.8.html
 ```
 ulimit -H -a
 ulimit -S -a
@@ -21,7 +19,13 @@ Options that could limit the number of threads:
 - `virtual memory          (kbytes, -v)`
 - `max memory size         (kbytes, -m)`
 
+References:
+- http://man7.org/linux/man-pages/man5/limits.conf.5.html
+- http://man7.org/linux/man-pages/man8/pam_limits.8.html
+
+
 ### Temporarily modify ulimit
+
 ```
 ulimit -S -u 1000000
 ulimit -S -u unlimited
@@ -30,7 +34,7 @@ ulimit -S -u unlimited
 ### Permanently modify ulimit
 ```
 echo "username - nproc 1000000" >> /etc/security/limits.d/90-nproc.conf
-echo "username - unlimited" >> /etc/security/limits.d/90-nproc.conf 
+echo "username - unlimited" >> /etc/security/limits.d/90-nproc.conf
 
 ```
 
@@ -41,8 +45,9 @@ sysctl kernel.threads-max
 sysctl kernel.pid_max
 sysctl vm.max_map_count
 ```
-https://kernel.org/doc/Documentation/sysctl/kernel.txt
-https://kernel.org/doc/Documentation/sysctl/vm.txt
+References:
+- https://kernel.org/doc/Documentation/sysctl/kernel.txt
+- https://kernel.org/doc/Documentation/sysctl/vm.txt
 
 ### Temporarily modify kernel parameters
 
