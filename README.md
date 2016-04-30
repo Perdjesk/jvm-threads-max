@@ -7,9 +7,13 @@ The following script will print system information and will create the maximum p
 ./report.sh
 ```
 
-# Thread limiting sources
+# Thread limiting 
+
+- ulimit / limits.conf / pam_limits
+- Kernel parameters
 
 ## ulimit
+Show the current hard(-H)/soft(-S) limits.
 ```
 ulimit -H -a
 ulimit -S -a
@@ -25,7 +29,7 @@ References:
 
 
 ### Temporarily modify ulimit
-
+Either set a number or `unlimited` to indicate no limit.
 ```
 ulimit -S -u 1000000
 ulimit -S -u unlimited
@@ -39,7 +43,7 @@ echo "username - unlimited" >> /etc/security/limits.d/90-nproc.conf
 ```
 
 ## Kernel parameters
-
+Show the current value of a kernel paremeter with `sysctl`.
 ```
 sysctl kernel.threads-max
 sysctl kernel.pid_max
